@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ClusTime</title>
+  <link rel="stylesheet" href="Style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <img class="hero-logo" src="images/clustime_logo.png" alt="ClusTime ロゴ" />
+      <div class="hero-copy">
+        <h1>ClusTime</h1>
+        <p class="lead">ClusTimeは、共通の趣味や興味を持つ人々が「クラスタ」と呼ばれるコミュニティを形成し、活発に交流できるSNSアプリケーションです。FlutterとFirebaseを駆使して開発されており、リアルタイムなコミュニケーションを実現します。<br>ここではソースコード本体は公開せず、設計のみ公開します。 アプリのリンクは <a href="https://apps.apple.com/jp/app/clustime/id6749456160" target="_blank" rel="noopener noreferrer">こちら</a> です。</p>
+        <p>
+          <a class="hero-cta" href="https://apps.apple.com/jp/app/clustime/id6749456160" target="_blank" rel="noopener noreferrer" aria-label="App StoreでClusTimeを開く">App Storeで開く</a>
+        </p>
+      </div>
+    </header>
+    <figure class="illustration">
+      <img src="images/コンセプト.png" alt="ClusTimeのコンセプト図" />
+    </figure>
+
+    <h2>✨ 主な機能</h2>
+    <ul>
+      <li><strong>ユーザー認証</strong>: メールアドレス、Google、Appleアカウントによる安全なサインアップとログイン機能を提供します。</li>
+      <li><strong>クラスタ（コミュニティ）</strong>:
+        <ul>
+          <li>ユーザーは自由にクラスタを作成し、参加できます。</li>
+          <li>公開/非公開（承認制）の設定が可能です。</li>
+          <li>クラスタごとにプロフィール（バナー、アイコン、説明、ルール）をカスタマイズできます。</li>
+        </ul>
+      </li>
+      <li><strong>投稿</strong>:
+        <ul>
+          <li>テキスト、複数画像の投稿が可能です。</li>
+          <li>いいね、返信、リポスト、引用リポストといった基本的なSNS機能を網羅しています。</li>
+          <li>投稿のエンゲージメント（いいね、リポストしたユーザー）を確認できます。</li>
+        </ul>
+      </li>
+      <li><strong>通知</strong>:
+        <ul>
+          <li>いいね、リプライ、リポストなどのアクションをリアルタイムで通知します。</li>
+          <li>Firebase Cloud Messaging (FCM) を活用し、アプリがバックグラウンドや終了状態でも通知を受け取れます。</li>
+        </ul>
+      </li>
+      
+      <li><strong>管理機能</strong>:
+        <ul>
+          <li>不適切な投稿やユーザーを通報する機能があります。</li>
+          <li>管理者向けのレビューパネルで、通報内容の確認と対応（承認、削除など）が可能です。</li>
+        </ul>
+        <figure class="illustration">
+          <img src="images/モデレート.png" alt="モデレーションのレビュー画面イメージ" />
+        </figure>
+      </li>
+    </ul>
+
+    <hr />
+
+    <h2>📱 スクリーンショット</h2>
+    <div class="gallery">
+      <figure><img src="images/screenshot1.png" alt="スクリーンショット 1" /></figure>
+      <figure><img src="images/screenshot2.png" alt="スクリーンショット 2" /></figure>
+      <figure><img src="images/screenshot3.png" alt="スクリーンショット 3" /></figure>
+      <figure><img src="images/screenshot4.png" alt="スクリーンショット 4" /></figure>
+      <figure><img src="images/screenshot5.png" alt="スクリーンショット 5" /></figure>
+    </div>
+
+    <hr />
+
+    <h2>🏛️ アーキテクチャ</h2>
+    <ul>
+      <li><strong>UIフレームワーク</strong>: Flutter (Cupertinoデザイン)</li>
+      <li><strong>バックエンド</strong>: Firebase (Authentication, Firestore, Cloud Functions, Storage, App Check, Crashlytics)</li>
+      <li><strong>状態管理</strong>: <a href="https://riverpod.dev/" target="_blank" rel="noopener noreferrer">Riverpod</a></li>
+      <li><strong>主要なパッケージ</strong>:
+        <ul>
+          <li><code>firebase_core</code>, <code>firebase_auth</code>, <code>cloud_firestore</code>, <code>cloud_functions</code>, <code>firebase_storage</code></li>
+          <li><code>flutter_riverpod</code></li>
+          <li><code>cached_network_image</code> (画像キャッシュ)</li>
+          <li><code>image_picker</code>, <code>image_cropper</code> (画像選択・編集)</li>
+          <li><code>google_mobile_ads</code> (広告)</li>
+          <li><code>timeago</code> (相対時間表示)</li>
+        </ul>
+      </li>
+    </ul>
+
+    <hr />
+
+    <h2>🛠️ 設計思想と技術的ハイライト</h2>
+    <p>本プロジェクトは、単に機能を実現するだけでなく、<strong>保守性・拡張性・堅牢性</strong>を重視した設計思想に基づいています。</p>
+
+    <h3>1. アーキテクチャ：Feature-Driven Design × レイヤードアーキテクチャ</h3>
+    <ul>
+      <li><strong>機能単位での関心事の分離</strong>: <code>lib/features</code> ディレクトリ以下に機能ごとのモジュールを配置する <strong>Feature-Driven Design</strong> を採用しています。これにより、機能追加や修正が他の機能へ与える影響を最小限に抑え、コードベースの見通しを良くしています。</li>
+      <li><strong>依存関係の明確化</strong>: 各機能モジュールは <code>application</code> (ビジネスロジック), <code>data</code> (データ層), <code>presentation</code> (UI層) に分割されています。このレイヤードアーキテクチャにより、UI、ロジック、データソース間の依存関係が一方向に保たれ、各層の独立したテストや変更が容易になります。</li>
+    </ul>
+
+    <h3>2. 状態管理：Riverpodによる宣言的なUI構築</h3>
+    <ul>
+      <li><strong>依存性注入 (DI)</strong>: <code>Riverpod</code> を全面的に採用し、<code>Provider</code> を介してRepositoryやServiceといった依存性を注入しています。これにより、ウィジェットツリーのどこからでも安全に依存関係にアクセスでき、コンポーネントの再利用性とテスト容易性を高めています。</li>
+      <li><strong>宣言的なデータフェッチ</strong>: <code>StreamProvider</code> や <code>FutureProvider</code> を活用し、Firebaseとの非同期通信やリアルタイムなデータ更新を宣言的に記述。ローディング、エラー、データ表示といったUIの状態分岐をシンプルかつ堅牢に実装しています。</li>
+      <li><strong>イミュータブルな状態</strong>: <code>freezed</code> を用いて状態クラスを不変（イミュータブル）に保っています。これにより、予期せぬ状態の変更を防ぎ、アプリケーションの動作を予測可能にしています。</li>
+    </ul>
+
+    <h3>3. バックエンド連携：Cloud Functions for Firebaseの活用</h3>
+    <ul>
+      <li><strong>サーバーサイド・ロジック</strong>: 投稿の作成・削除、ユーザー参加、権限譲渡といった複雑なデータベース操作やセキュリティが重要な処理は、<strong>Cloud Functions</strong> に集約しています。</li>
+      <li><strong>クライアントの責務軽減</strong>: クライアントアプリはUIの描画とユーザーインタラクションに集中。サーバーサイドにロジックをオフロードすることで、クライアント側のコードをシンプルに保ち、アプリのパフォーマンスとセキュリティを向上させています。</li>
+    </ul>
+
+    <h3>4. 高い再利用性と一貫性を持つUIコンポーネント</h3>
+    <ul>
+      <li><strong>共通コンポーネント</strong>: <code>lib/shared/widgets</code> に、認証ボタン、ポップアップ、インジケーターなど、アプリ全体で再利用可能なUIコンポーネントを多数配置。コードの重複を避け、一貫したユーザー体験を提供します。</li>
+      <li><strong>テーマ管理</strong>: <code>lib/app/theme</code> にて、ダークモード対応を含むアプリ全体の配色やスタイルを一元管理。UIの変更や新たなテーマの追加が容易な設計となっています。</li>
+    </ul>
+
+    <h3>5. 開発と運用の効率化</h3>
+    <ul>
+      <li><strong>Flavorによる環境分離</strong>: <code>main_prod.dart</code> と <code>main_beta.dart</code> を用意し、<strong>Flavor</strong> を用いて本番環境とベータ環境を完全に分離。FirebaseプロジェクトやAPIキーを環境ごとに切り替え、安全な開発とデプロイメントを実現しています。</li>
+      <li><strong>セキュリティ</strong>: Firebase App Checkを導入し、不正なクライアントからのアクセスをブロック。アプリケーションの安全性を高めています。</li>
+    </ul>
+
+    <hr />
+
+  <h2>🧩 ケーススタディ</h2>
+  <h3>役割・体制・責務</h3>
+  <p>本プロジェクトは <strong>エンジニア2名＋デザイナー1名</strong> の体制で開発しました。私はエンジニアとしてフロントエンド全般とiOS版の実装を担当し、Dartコードの設計から実装までをリードしました。もう一名のエンジニアは <strong>Firebase Cloud Functions</strong> を中心に、投稿取得やプロフィール管理などのサーバーサイド処理を担当しました。<strong>Feature‑Driven Design</strong> とレイヤードアーキテクチャを徹底し、機能単位の関心分離と責務の明確化によって保守性を高めています。</p>
+
+  <h3>目標・制約・意思決定</h3>
+  <p>実質2名という限られた体制とスケジュールの中で、開発速度・運用容易性・マルチプラットフォーム対応を優先しました。そのため、ネイティブ個別実装ではなく <strong>Firebase × Flutter</strong> を採用。認証・リアルタイムデータ・サーバーサイドロジック・通知は Firebase（Auth / Firestore / Functions / FCM）に集約し、クライアントはユーザー体験に専念できる構成としました。</p>
+
+  <hr />
+
+    <h2>📁 フォルダ構成</h2>
+    <p>プロジェクトは機能ごとに整理された<code>features</code>ディレクトリを中心に構成されています。</p>
+    <pre><code>lib
+├── app/                  # アプリケーション全体のコア設定（main_tab_screen, theme, providers）
+├── core/                 # プロジェクト横断的なコア機能（config, firebase, services, utils）
+├── features/             # 機能ごとのディレクトリ
+│   ├── admin/            # 管理者向け機能
+│   ├── auth/             # 認証関連
+│   ├── cluster/          # クラスタ（コミュニティ）関連
+│   ├── notifications/    # 通知関連
+│   ├── post/             # 投稿関連
+│   ├── profile/          # プロフィール関連
+│   ├── report/           # 通報機能関連
+│   └── search/           # 検索機能関連
+├── shared/               # 複数の機能で共有されるWidgetやスタイル
+│   ├── styles/
+│   └── widgets/
+├── main_beta.dart        # Beta版のエントリーポイント
+└── main_prod.dart        # Production版のエントリーポイント
+</code></pre>
+  </main>
+</body>
+</html>
