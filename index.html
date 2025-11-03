@@ -12,7 +12,7 @@
       <img class="hero-logo" src="images/clustime_logo.png" alt="ClusTime ロゴ" />
       <div class="hero-copy">
         <h1>ClusTime</h1>
-        <p class="lead">ClusTimeは、共通の趣味や興味を持つ人々が「クラスタ」と呼ばれるコミュニティを形成し、活発に交流できるSNSアプリケーションです。FlutterとFirebaseを駆使して開発されており、リアルタイムなコミュニケーションを実現します。<br>ここではソースコード本体は公開せず、設計のみ公開します。 アプリのリンクは <a href="https://apps.apple.com/jp/app/clustime/id6749456160" target="_blank" rel="noopener noreferrer">こちら</a> です。</p>
+        <p class="lead">ClusTimeは、共通の趣味や興味を持つ人々が「クラスタ」と呼ばれるコミュニティを形成し、活発に交流できるSNSアプリケーションです。FlutterとFirebaseを駆使して開発されており、リアルタイムなコミュニケーションを実現します。<br>ここではソースコード本体は公開せず、設計のみ公開します。</p>
         <p>
           <a class="hero-cta" href="https://apps.apple.com/jp/app/clustime/id6749456160" target="_blank" rel="noopener noreferrer" aria-label="App StoreでClusTimeを開く">App Storeで開く</a>
         </p>
@@ -22,73 +22,74 @@
       <img src="images/コンセプト.png" alt="ClusTimeのコンセプト図" />
     </figure>
 
-    <h2>✨ 主な機能</h2>
-    <ul>
-      <li><strong>ユーザー認証</strong>: メールアドレス、Google、Appleアカウントによる安全なサインアップとログイン機能を提供します。</li>
-      <li><strong>クラスタ（コミュニティ）</strong>:
-        <ul>
-          <li>ユーザーは自由にクラスタを作成し、参加できます。</li>
-          <li>公開/非公開（承認制）の設定が可能です。</li>
-          <li>クラスタごとにプロフィール（バナー、アイコン、説明、ルール）をカスタマイズできます。</li>
-        </ul>
-      </li>
-      <li><strong>投稿</strong>:
-        <ul>
-          <li>テキスト、複数画像の投稿が可能です。</li>
-          <li>いいね、返信、リポスト、引用リポストといった基本的なSNS機能を網羅しています。</li>
-          <li>投稿のエンゲージメント（いいね、リポストしたユーザー）を確認できます。</li>
-        </ul>
-      </li>
-      <li><strong>通知</strong>:
-        <ul>
-          <li>いいね、リプライ、リポストなどのアクションをリアルタイムで通知します。</li>
-          <li>Firebase Cloud Messaging (FCM) を活用し、アプリがバックグラウンドや終了状態でも通知を受け取れます。</li>
-        </ul>
-      </li>
-      
-      <li><strong>管理機能</strong>:
-        <ul>
-          <li>不適切な投稿やユーザーを通報する機能があります。</li>
-          <li>管理者向けのレビューパネルで、通報内容の確認と対応（承認、削除など）が可能です。</li>
-        </ul>
-        <figure class="illustration">
-          <img src="images/モデレート.png" alt="モデレーションのレビュー画面イメージ" />
-        </figure>
-      </li>
-    </ul>
-
     <hr />
 
-    <h2>📱 スクリーンショット</h2>
-    <div class="gallery">
-      <figure><img src="images/screenshot1.png" alt="スクリーンショット 1" /></figure>
-      <figure><img src="images/screenshot2.png" alt="スクリーンショット 2" /></figure>
-      <figure><img src="images/screenshot3.png" alt="スクリーンショット 3" /></figure>
-      <figure><img src="images/screenshot4.png" alt="スクリーンショット 4" /></figure>
-      <figure><img src="images/screenshot5.png" alt="スクリーンショット 5" /></figure>
-    </div>
+    <section id="overview" class="panel">
+      <h2>✨ 主な機能</h2>
+      <ul>
+        <li><strong>ユーザー認証</strong>: メールアドレス、Google、Appleアカウントによる安全なサインアップとログイン機能を提供します。</li>
+        <li><strong>クラスタ（コミュニティ）</strong>:
+          <ul>
+            <li>ユーザーは自由にクラスタを作成し、参加できます。</li>
+            <li>公開/非公開（承認制）の設定が可能です。</li>
+            <li>クラスタごとにプロフィール（バナー、アイコン、説明、ルール）をカスタマイズできます。</li>
+          </ul>
+        </li>
+        <li><strong>投稿</strong>:
+          <ul>
+            <li>テキスト、複数画像の投稿が可能です。</li>
+            <li>いいね、返信、リポスト、引用リポストといった基本的なSNS機能を網羅しています。</li>
+            <li>投稿のエンゲージメント（いいね、リポストしたユーザー）を確認できます。</li>
+          </ul>
+        </li>
+        <li><strong>通知</strong>:
+          <ul>
+            <li>いいね、リプライ、リポストなどのアクションをリアルタイムで通知します。</li>
+            <li>Firebase Cloud Messaging (FCM) を活用し、アプリがバックグラウンドや終了状態でも通知を受け取れます。</li>
+          </ul>
+        </li>
+        
+        <li><strong>管理機能</strong>:
+          <ul>
+            <li>不適切な投稿やユーザーを通報する機能があります。</li>
+            <li>管理者向けのレビューパネルで、通報内容の確認と対応（承認、削除など）が可能です。</li>
+          </ul>
+          <figure class="illustration">
+            <img src="images/モデレート.png" alt="モデレーションのレビュー画面イメージ" />
+          </figure>
+        </li>
+      </ul>
+    </section>
+    
 
-    <hr />
+    <section id="overview" class="panel">
+      <h2>📱 スクリーンショット</h2>
+      <div class="gallery">
+        <figure><img src="images/screenshot1.png" alt="スクリーンショット 1" /></figure>
+        <figure><img src="images/screenshot2.png" alt="スクリーンショット 2" /></figure>
+        <figure><img src="images/screenshot3.png" alt="スクリーンショット 3" /></figure>
+        <figure><img src="images/screenshot4.png" alt="スクリーンショット 4" /></figure>
+        <figure><img src="images/screenshot5.png" alt="スクリーンショット 5" /></figure>
+      </div>
+    </section>
+    
+    <section id="overview" class="panel">
+      <h2>🧑‍💻 技術情報</h2>
+      <p>技術スタックや設計の詳細は、GitHub の README をご覧ください。</p>
+      <p>
+        <a class="hero-cta" href="https://github.com/Applica-760/clustime" target="_blank" rel="noopener noreferrer" aria-label="GitHubのREADMEを開く">技術情報（README）を見る</a>
+      </p>
+    </section>
+    
+    <section id="overview" class="panel">
+      <h2>🧩 ケーススタディ</h2>
+      <h3>役割・体制・責務</h3>
+      <p>本プロジェクトは <strong>エンジニア2名＋デザイナー1名</strong> の体制で開発しました。私はエンジニアとしてフロントエンド全般とiOS版の実装を担当し、Dartコードの設計から実装までをリードしました。もう一名のエンジニアは <strong>Firebase Cloud Functions</strong> を中心に、投稿取得やプロフィール管理などのサーバーサイド処理を担当しました。<strong>Feature‑Driven Design</strong> とレイヤードアーキテクチャを徹底し、機能単位の関心分離と責務の明確化によって保守性を高めています。</p>
 
-    <h2>🧑‍💻 技術情報</h2>
-    <p>技術スタックや設計の詳細は、GitHub の README をご覧ください。</p>
-    <p>
-      <a class="hero-cta" href="https://github.com/Applica-760/clustime" target="_blank" rel="noopener noreferrer" aria-label="GitHubのREADMEを開く">技術情報（README）を見る</a>
-    </p>
-
-    <hr />
-
-  <h2>🧩 ケーススタディ</h2>
-  <h3>役割・体制・責務</h3>
-  <p>本プロジェクトは <strong>エンジニア2名＋デザイナー1名</strong> の体制で開発しました。私はエンジニアとしてフロントエンド全般とiOS版の実装を担当し、Dartコードの設計から実装までをリードしました。もう一名のエンジニアは <strong>Firebase Cloud Functions</strong> を中心に、投稿取得やプロフィール管理などのサーバーサイド処理を担当しました。<strong>Feature‑Driven Design</strong> とレイヤードアーキテクチャを徹底し、機能単位の関心分離と責務の明確化によって保守性を高めています。</p>
-
-  <h3>目標・制約・意思決定</h3>
-  <p>実質2名という限られた体制とスケジュールの中で、開発速度・運用容易性・マルチプラットフォーム対応を優先しました。そのため、ネイティブ個別実装ではなく <strong>Firebase × Flutter</strong> を採用。認証・リアルタイムデータ・サーバーサイドロジック・通知は Firebase（Auth / Firestore / Functions / FCM）に集約し、クライアントはユーザー体験に専念できる構成としました。</p>
-
-  <hr />
-  <p>
-    <a class="hero-cta" href="https://apps.apple.com/jp/app/clustime/id6749456160" target="_blank" rel="noopener noreferrer" aria-label="App StoreでClusTimeを開く（再掲）">App Storeで開く</a>
-  </p>
+      <h3>目標・制約・意思決定</h3>
+      <p>実質2名という限られた体制とスケジュールの中で、開発速度・運用容易性・マルチプラットフォーム対応を優先しました。そのため、ネイティブ個別実装ではなく <strong>Firebase × Flutter</strong> を採用。認証・リアルタイムデータ・サーバーサイドロジック・通知は Firebase（Auth / Firestore / Functions / FCM）に集約し、クライアントはユーザー体験に専念できる構成としました。</p>
+    </section>
+ 
   </main>
 </body>
 </html>
