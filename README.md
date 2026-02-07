@@ -7,8 +7,8 @@
 このリポジトリは、SNSアプリ「ClusTime」の設計と開発履歴をポートフォリオとしてまとめたものです。アプリ本体のソースコードは公開していません（技術的な構成・採用技術の共有が目的）。
 
 ## リンク
-- ポートフォリオ（GitHub Pages）: https://applica-760.github.io/clustime/
 - App Store: https://apps.apple.com/jp/app/clustime/id6749456160
+- Google Play: https://play.google.com/store/apps/details?id=com.clustime.clustime.beta&hl=ja
 
 ---
 
